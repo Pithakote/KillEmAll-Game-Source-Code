@@ -10,12 +10,18 @@ public class bulletTravel : MonoBehaviour {
     public float distance;
     public LayerMask solid;
     public GameObject destroyParticle;
+    public float playerScore = 0f;
+    int score = 0;
 
-    public int dmg;
+    private cameraShake shake;
+    public int dmg = 1;
     // Use this for initialization
     void Start () {
+        Destroy(gameObject, lifeTime);
         Invoke("bulletDestroy", lifeTime);
+        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,6 +34,7 @@ public class bulletTravel : MonoBehaviour {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
                 Debug.Log("Enemy dead");
+                shake.CamShake();
                 hitInfo.collider.GetComponent<enemy>().takesDmg(dmg);
             }
             bulletDestroy();

@@ -11,7 +11,8 @@ public class enemyspawner : MonoBehaviour {
     public float spawnWait;
     public float startWait;
     public float waveWait;
-
+    private int healthincrease;
+    public GameObject bullet;
     void Start ()
     {
         StartCoroutine (SpawnWaves ());
@@ -30,8 +31,12 @@ public class enemyspawner : MonoBehaviour {
                 yield return new WaitForSeconds (spawnWait);
             }
             yield return new WaitForSeconds (waveWait);
-            GameObject.Find("player").GetComponent<playerMovement>().health += 2;
+           bullet.GetComponent<bulletTravel>().dmg += 1;
+            bullet.GetComponent<bulletTravel>().speed += 0.2f;
+            healthincrease += 1;
+            GameObject.Find("player").GetComponent<playerMovement>().health += healthincrease;
             hazardCount += 1;
+            spawnWait -= 0.5f;
         }
     }
 }

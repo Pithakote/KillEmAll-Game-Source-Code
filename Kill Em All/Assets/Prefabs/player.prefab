@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 212502019026411948}
   - component: {fileID: 114105742498514210}
   - component: {fileID: 61460229001239328}
-  - component: {fileID: 50826421676134756}
   - component: {fileID: 114265976091663984}
-  - component: {fileID: 58206571205395698}
-  m_Layer: 9
+  - component: {fileID: 50315864048227688}
+  - component: {fileID: 58708697456902578}
+  m_Layer: 10
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1053222788866136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2644143, y: 2.2644143, z: 2.2644143}
   m_Children:
   - {fileID: 4320187625625140}
   m_Father: {fileID: 0}
@@ -74,27 +74,27 @@ Transform:
   m_Father: {fileID: 4233308430927410}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50826421676134756
+--- !u!50 &50315864048227688
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053222788866136}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58206571205395698
+--- !u!58 &58708697456902578
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053222788866136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   offset: -90
   bullet: {fileID: 1058490422628368, guid: 92a82ee2c1fe9fe4a89ed2104d492342, type: 2}
   shootFrom: {fileID: 4320187625625140}
-  startDelayShot: 0.3
+  startDelayShot: 0.1
 --- !u!114 &114265976091663984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +161,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  deathParticle: {fileID: 1110264763428426, guid: 443a8ba800c81734c8f77d26b1b07fdf,
+    type: 2}
+  health: 3
+  healthtext: {fileID: 0}
 --- !u!212 &212502019026411948
 SpriteRenderer:
   m_ObjectHideFlags: 1

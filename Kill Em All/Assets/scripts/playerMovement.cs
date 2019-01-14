@@ -9,7 +9,7 @@ public class playerMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public GameObject deathParticle;
-    public int health ;
+    public int health = 3;
     public TMP_Text healthtext;
     //public GameObject healthText;
 	// Use this for initialization
@@ -22,19 +22,18 @@ public class playerMovement : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-
+        
         healthtext.text = "Health:" + health;
         if (health <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
-        {
+   
 
             Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             moveVelocity = move.normalized * speed;
-        }
+       
     }
 
     private void FixedUpdate()

@@ -100,13 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d4a3e639bcd61c479e5d37a8c12c575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   stopDist: 12
   retreatDist: 10
-  startTimeBetShots: 2
+  startTimeBetShots: 0.6
   enemyBullet: {fileID: 1709469132035402, guid: 8a258607b222cb240bd45a8517e86b84,
     type: 2}
-  player: {fileID: 0}
+  player: {fileID: 4233308430927410, guid: 2befd3f8a11ed08408e5a614c85700d8, type: 2}
 --- !u!114 &114450360098133706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb70742305b4f8479cb80f6888733e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 5
   deathParticle: {fileID: 1110264763428426, guid: 443a8ba800c81734c8f77d26b1b07fdf,
     type: 2}
 --- !u!212 &212665530329196976

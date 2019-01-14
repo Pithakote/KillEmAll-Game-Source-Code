@@ -8,7 +8,7 @@ public class shooterScript : MonoBehaviour {
     public float offset;
     public GameObject bullet;
     public Transform shootFrom;
-
+    public Transform shootFrom1;
     private float delayShot;
     public float startDelayShot;
    
@@ -26,9 +26,10 @@ public class shooterScript : MonoBehaviour {
 
         if (delayShot <= 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 Instantiate(bullet, shootFrom.position, transform.rotation);
+                
                 delayShot = startDelayShot;
                 
             }
