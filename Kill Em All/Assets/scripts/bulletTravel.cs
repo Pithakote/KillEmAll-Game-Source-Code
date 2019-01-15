@@ -12,12 +12,13 @@ public class bulletTravel : MonoBehaviour {
     public GameObject destroyParticle;
     public float playerScore = 0f;
     int score = 0;
-
+    
     private cameraShake shake;
     public int dmg = 1;
     // Use this for initialization
     void Start () {
         Destroy(gameObject, lifeTime);
+      //  damageSound = GetComponent<AudioSource>();
         Invoke("bulletDestroy", lifeTime);
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 	}
@@ -35,6 +36,7 @@ public class bulletTravel : MonoBehaviour {
             {
                 Debug.Log("Enemy dead");
                 shake.CamShake();
+              //  damageSound.Play();
                 hitInfo.collider.GetComponent<enemy>().takesDmg(dmg);
             }
             bulletDestroy();

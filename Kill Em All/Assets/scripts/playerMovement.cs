@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class playerMovement : MonoBehaviour {
 
@@ -27,7 +28,9 @@ public class playerMovement : MonoBehaviour {
         if (health <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);
+            SceneManager.LoadScene("gameOver");
             Destroy(gameObject);
+            
         }
    
 

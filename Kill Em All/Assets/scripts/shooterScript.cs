@@ -8,15 +8,18 @@ public class shooterScript : MonoBehaviour {
     public float offset;
     public GameObject bullet;
     public Transform shootFrom;
-    public Transform shootFrom1;
+    public Transform secondShooter;
+    public Transform thirdShooter;
+    public Transform fourthShooter;
     private float delayShot;
     public float startDelayShot;
-   
+    
+    private cameraShake shake;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,8 +31,9 @@ public class shooterScript : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
+               // shake.CamShake();
                 Instantiate(bullet, shootFrom.position, transform.rotation);
-                
+               
                 delayShot = startDelayShot;
                 
             }
