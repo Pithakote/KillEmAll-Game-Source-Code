@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class enemy : MonoBehaviour {
-    public int health;
+    public int health = 100;
     private cameraShake shake;
     public GameObject deathParticle;
     // Use this for initialization

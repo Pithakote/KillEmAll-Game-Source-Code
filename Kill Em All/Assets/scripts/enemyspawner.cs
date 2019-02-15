@@ -53,7 +53,7 @@ public class enemyspawner : MonoBehaviour {
             clip = musicArray[index];
             source.clip = clip;
             source.Play();
-            hazard.GetComponent<enemy>().health += 2;
+            hazard.GetComponent<enemy>().health += 4;
            //bullet.GetComponent<bulletTravel>().dmg += 1;
             waveNumber += 2;
             //bullet.GetComponent<bulletTravel>().speed += 0.2f;
