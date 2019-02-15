@@ -43,7 +43,7 @@ public class enemyspawner : MonoBehaviour {
         {
             for (int i = 0; i < hazardCount; i++)
             {
-                Vector3 spawnPosition = new Vector3 (Random.Range (transform.position.x, transform.position.x + 50), Random.Range(transform.position.y, transform.position.y-50), transform.position.z);
+                Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 100));//, transform.position.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate (hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds (spawnWait);
@@ -53,13 +53,14 @@ public class enemyspawner : MonoBehaviour {
             clip = musicArray[index];
             source.clip = clip;
             source.Play();
-           bullet.GetComponent<bulletTravel>().dmg += 1;
-            waveNumber += 1;
-            bullet.GetComponent<bulletTravel>().speed += 0.2f;
-            healthincrease += 1;
+            hazard.GetComponent<enemy>().health += 2;
+           //bullet.GetComponent<bulletTravel>().dmg += 1;
+            waveNumber += 2;
+            //bullet.GetComponent<bulletTravel>().speed += 0.2f;
+            //healthincrease += 1;
             waveWait += 1;
            // GameObject.Find("player").GetComponent<playerMovement>().health += healthincrease;
-            hazardCount += 1;
+            hazardCount += 2;
             spawnWait -= 0.5f;
         }
     }

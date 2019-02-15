@@ -35,7 +35,7 @@ public class bulletTravel : MonoBehaviour {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
                 Debug.Log("Enemy dead");
-                shake.CamShake();
+                shake.CamShake2();
               //  damageSound.Play();
                 hitInfo.collider.GetComponent<enemy>().takesDmg(dmg);
             }

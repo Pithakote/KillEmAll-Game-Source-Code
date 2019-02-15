@@ -4,18 +4,19 @@ using UnityEngine;
 using TMPro;
 public class enemy : MonoBehaviour {
     public int health;
-    
+    private cameraShake shake;
     public GameObject deathParticle;
     // Use this for initialization
     public AudioClip music;
     public AudioSource damageSound;
 
     void Start () {
-
+        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
         damageSound.clip = music;
     }
     public void takesDmg(int damage)
     {
+       shake.CamShake();
         health -= damage;
         damageSound.Play();
     }

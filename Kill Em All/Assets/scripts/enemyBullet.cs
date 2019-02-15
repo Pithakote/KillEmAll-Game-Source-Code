@@ -10,9 +10,12 @@ public class enemyBullet : MonoBehaviour {
     private Vector2 target;
     public float distance;
     public LayerMask solid;
-    // Use this for initialization
+    // Use this for initializatio
+    private cameraShake shake;
     void Start () {
-      //  Invoke("destroyProjectile", lifeTime);
+        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
+
+        //  Invoke("destroyProjectile", lifeTime);
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
             target = new Vector2(player.position.x, player.position.y);
@@ -43,6 +46,7 @@ public class enemyBullet : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            shake.CamShake2();
             Debug.Log("player detected");
             removeHealth();
             DestroyProjectile();
