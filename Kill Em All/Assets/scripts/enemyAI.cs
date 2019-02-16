@@ -14,15 +14,17 @@ public class enemyAI : MonoBehaviour {
     public GameObject enemyBullet;
 
     public Transform player;
-	// Use this for initialization
-	void Start () {
+  
+    // Use this for initialization
+    void Start () {
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         timeBetShots = startTimeBetShots;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+  
+            // Update is called once per frame
+            void Update () {
 
         if (Vector2.Distance(transform.position, player.position) > stopDist)
         {

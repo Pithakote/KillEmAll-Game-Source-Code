@@ -40,13 +40,24 @@ public class bulletTravel : MonoBehaviour {
                 hitInfo.collider.GetComponent<enemy>().takesDmg(dmg);
             }
             bulletDestroy();
+            
         }
 
         transform.Translate(Vector2.up * speed * Time.deltaTime);
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("boss"))
+        {
+            collision.GetComponent<bossAI>().bossDecreaseHealth();
+            shake.CamShake2();
+            bulletDestroy();
+        }
+    }
     void bulletDestroy()
     {
+
         Instantiate(destroyParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
