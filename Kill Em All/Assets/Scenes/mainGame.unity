@@ -2774,7 +2774,7 @@ Prefab:
     - target: {fileID: 114757907530953580, guid: 3aa0f4f2d14776546a47b967a4646faa,
         type: 2}
       propertyPath: nowaveNumber
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa0f4f2d14776546a47b967a4646faa, type: 2}
