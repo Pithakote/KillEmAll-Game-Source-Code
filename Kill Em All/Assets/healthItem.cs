@@ -6,7 +6,7 @@ public class healthItem : MonoBehaviour
 {
 
  //   public float speed;
-    public float lifeTime = 5;
+    public float lifeTime ;
    // private int healthincrease;
   //  private Transform player;
  //   private Vector2 target;

@@ -9,7 +9,7 @@ public class enemyspawner : MonoBehaviour {
     public AudioSource source;
     public AudioClip[] musicArray;
     private AudioClip clip;
-
+    private cameraShake shake;
     public TMP_Text wave;
     public GameObject hazard;
     // public Vector3 spawnValues;
@@ -21,22 +21,24 @@ public class enemyspawner : MonoBehaviour {
     public GameObject bullet;
     public bool contSmallEnemies;
     public int waveNumber = 1;
-    public int nowaveNumber = 6;
+    public int nowaveNumber = 7;
+    public int maxWave = 3;
     public GameObject boss;
+    IEnumerator spawnStop;
     void Start()
     {
-
-        StartCoroutine(SpawnWaves());
+        boss.SetActive(false);
+         spawnStop = SpawnWaves();
+        StartCoroutine(spawnStop);
+        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 
     }
     private void Update()
     {
+
         wave.text = "Wave: " + waveNumber;
 
-        if (waveNumber == nowaveNumber)
-        {
-            SceneManager.LoadScene("final");
-        }
+       
 
     }
     public void OnDisable()
@@ -55,17 +57,20 @@ public class enemyspawner : MonoBehaviour {
 
         while (true)
         {
-            
+          
                 for (int i = 0; i < hazardCount; i++)
                 {
-
-
-
-                    Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 100));//, transform.position.z);
+                if (waveNumber == nowaveNumber)
+                {
+                    shake.IntroBoss();
+                    boss.SetActive(true);
+                    StopCoroutine(spawnStop);
+                    //   SceneManager.LoadScene("final");
+                }
+                Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 100));//, transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait);
-
                 }
                 yield return new WaitForSeconds(waveWait);
                 int index = Random.Range(0, musicArray.Length);
@@ -80,11 +85,13 @@ public class enemyspawner : MonoBehaviour {
                 //healthincrease += 1;
                 waveWait += 1;
                 // GameObject.Find("player").GetComponent<playerMovement>().health += healthincrease;
-                hazardCount += 2;
+                hazardCount += 1;
                 spawnWait -= 0.5f;
-                
+
             
-            
+
+
+
         }
 
     } 

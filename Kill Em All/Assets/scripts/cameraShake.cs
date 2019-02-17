@@ -25,4 +25,16 @@ public class cameraShake : MonoBehaviour {
         damageSound.Play();
         cameraAnim.SetTrigger("shake");
     }
+
+    public void IntroBoss()
+    {
+        cameraAnim.SetTrigger("introShake");
+        StartCoroutine(idleTrigger());
+    }
+
+    IEnumerator idleTrigger()
+    {
+        yield return new  WaitForSeconds(6);
+        cameraAnim.SetTrigger("idle");
+    }
 }

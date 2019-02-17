@@ -378,9 +378,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1211833367105304, guid: e7fa3b7989846864ba8c7972f17618a5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7fa3b7989846864ba8c7972f17618a5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &231826417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1119624292358116, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+    type: 2}
+  m_PrefabInternal: {fileID: 545867921}
 --- !u!1 &294940508
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +645,11 @@ Prefab:
     - target: {fileID: 4113475294840744, guid: da51ea3c1d163754cbbcb688fb9345e8, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793001205541478, guid: da51ea3c1d163754cbbcb688fb9345e8,
+        type: 2}
+      propertyPath: spawnCount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1086,7 +1100,7 @@ Prefab:
     - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
         type: 2}
       propertyPath: healthBoss
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4924655993228072, guid: b7f84e9f13f8f2042a4e0bed025cfa36, type: 2}
       propertyPath: m_LocalScale.x
@@ -1100,6 +1114,61 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.6046801
       objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: bossAnim
+      value: 
+      objectReference: {fileID: 816047826}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: startWait
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: homingSpawner
+      value: 
+      objectReference: {fileID: 231826417}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: homingMissiles
+      value: 
+      objectReference: {fileID: 1939778108798234, guid: a2c8bab6b4258da41b654e266b90fe43,
+        type: 2}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: missilesCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: spawnWait
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: waveWait
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: miniBoss
+      value: 
+      objectReference: {fileID: 1548022925}
+    - target: {fileID: 4730613779611280, guid: b7f84e9f13f8f2042a4e0bed025cfa36, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: startTimeBetShots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010168669499928, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+        type: 2}
+      propertyPath: wave
+      value: 
+      objectReference: {fileID: 1586079542}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f84e9f13f8f2042a4e0bed025cfa36, type: 2}
   m_IsPrefabAsset: 0
@@ -2143,7 +2212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1028014049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,7 +2843,7 @@ Prefab:
     - target: {fileID: 114757907530953580, guid: 3aa0f4f2d14776546a47b967a4646faa,
         type: 2}
       propertyPath: nowaveNumber
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa0f4f2d14776546a47b967a4646faa, type: 2}
@@ -3607,6 +3676,29 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2befd3f8a11ed08408e5a614c85700d8, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1548022925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1211833367105304, guid: e7fa3b7989846864ba8c7972f17618a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 220649645}
+--- !u!95 &1548022931
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1548022925}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86c4258300eb28f40a6c7ad9d7118dd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1568032952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,6 +4045,10 @@ Prefab:
       propertyPath: m_Name
       value: miniBoss (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1211833367105304, guid: e7fa3b7989846864ba8c7972f17618a5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7fa3b7989846864ba8c7972f17618a5, type: 2}
   m_IsPrefabAsset: 0
@@ -4139,6 +4235,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661516010}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1683286908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1287399850575570, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
+    type: 2}
+  m_PrefabInternal: {fileID: 545867921}
+--- !u!114 &1683286914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683286908}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77658ea04f8c13243be4a128210b38f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homingMissiles: {fileID: 1939778108798234, guid: a2c8bab6b4258da41b654e266b90fe43,
+    type: 2}
+  homingSpawner: {fileID: 231826417}
+  missilesCount: 3
+  spawnWait: 1.2
+  startWait: 1
+  waveWait: 12
 --- !u!1 &1716965313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,7 +4550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 347}
+  m_AnchoredPosition: {x: 36, y: 354}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2033435049

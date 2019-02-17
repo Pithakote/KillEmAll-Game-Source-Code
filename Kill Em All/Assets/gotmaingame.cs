@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class gotmaingame : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.anyKey)
-        {
-            SceneManager.LoadScene("mainGame");
-        }
+    // Use this for initialization
+    void Start() {
+
     }
+
+    // Update is called once per frame
+    void Update() {
+
+    }
+
+    public void continueScene()
+        {
+        SceneManager.LoadScene("mainGame");
+}
 }

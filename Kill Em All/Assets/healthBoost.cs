@@ -24,7 +24,7 @@ public class healthBoost : MonoBehaviour {
         {
             for (int i = 0; i < spawnCount; i++)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x, transform.position.x + 50), Random.Range(transform.position.y, transform.position.y - 50), transform.position.z);
+                Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 110), transform.position.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(health, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
