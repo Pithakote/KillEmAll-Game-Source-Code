@@ -210,17 +210,17 @@ MonoBehaviour:
   spawner2: {fileID: 4002347949599458}
   enemyBullet: {fileID: 1709469132035402, guid: 1dc69cabb8b43d245955802ad596b4db,
     type: 2}
-  healthBoss: 100
+  healthBoss: 2000
   bossDefeat: 0
   homingSpawner: {fileID: 4730613779611280}
+  bossAnim: {fileID: 0}
   homingMissiles: {fileID: 1939778108798234, guid: a2c8bab6b4258da41b654e266b90fe43,
     type: 2}
-  missilesCount: 5
-  spawnWait: 0.5
-  startWait: 1
-  waveWait: 6
+  wave: {fileID: 0}
   waveNumber: 3
   player: {fileID: 0}
+  move: 0
+  miniBoss: {fileID: 0}
 --- !u!212 &212624729891767146
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -17,7 +17,7 @@ public class playerMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public GameObject deathParticle;
-    public int health = 3;
+    public int health ;
     public TMP_Text healthtext;
     //public GameObject healthText;
     // Use this for initialization
@@ -26,7 +26,7 @@ public class playerMovement : MonoBehaviour {
 
     void Start () {
         //isShieldOn = false;
-
+        health = 15;
         bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
         playerShield.GetComponent<SpriteRenderer>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +53,8 @@ public class playerMovement : MonoBehaviour {
              Destroy(collision.gameObject);
             speed = 80;
             bullets.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            bullets.GetComponent<bulletTravel>().dmg = 4;
+            bullets.GetComponent<bulletTravel>().dmg = 2;
+            bullets.GetComponent<bulletTravel>().bossDmg = 8;
             player.GetComponent<shooterScript>().startDelayShot = 0.05f;
             StartCoroutine(disableMissile());
         }
@@ -63,10 +64,11 @@ public class playerMovement : MonoBehaviour {
         }
     IEnumerator disableMissile()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
 
         bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
         bullets.GetComponent<bulletTravel>().dmg = 1;
+        bullets.GetComponent<bulletTravel>().bossDmg = 5;
         player.GetComponent<shooterScript>().startDelayShot = 0.1f;
         speed = 40;
     }
@@ -80,6 +82,10 @@ public class playerMovement : MonoBehaviour {
             SceneManager.LoadScene("gameOver");
             Destroy(gameObject);
             
+        }
+        if (health >= 15)
+        {
+            health = 15;
         }
         /*if (isShieldOn == true)
         {

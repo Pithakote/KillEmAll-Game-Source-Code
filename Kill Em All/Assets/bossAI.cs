@@ -10,7 +10,7 @@ public class bossAI : MonoBehaviour {
     public Transform spawner1;
     public Transform spawner2;
     public GameObject enemyBullet;
-    public int healthBoss = 2000;
+    public int healthBoss ;
     private cameraShake shake;
     public bool bossDefeat = false;
     public GameObject homingSpawner;
@@ -27,7 +27,8 @@ public class bossAI : MonoBehaviour {
    // public int maxHealth = 2000;
     // Use this for initialization
     void Start () {
-        wave.text = "BOSS ";
+        healthBoss = 2000;
+        //wave.text = "BOSS ";
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
         gameObject.GetComponent<hmissileScript>().enabled = false;
         miniBoss.SetActive(false);
@@ -55,7 +56,7 @@ public class bossAI : MonoBehaviour {
     }*/
     private void FixedUpdate()
     {
-        if (healthBoss <= 1500)
+        if (healthBoss <= 1000)
         {
             miniBoss.SetActive(true);
             gameObject.GetComponent<hmissileScript>().enabled = true;
@@ -65,7 +66,7 @@ public class bossAI : MonoBehaviour {
             Debug.Log("Health boss 50");
             
         }
-        if (healthBoss <= 1000)
+        if (healthBoss <= 1500)
         {
             
             bossAnim.SetTrigger("moveTrigger");

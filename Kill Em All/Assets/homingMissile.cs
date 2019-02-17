@@ -11,8 +11,12 @@ public class homingMissile : MonoBehaviour {
     public GameObject destroyParticle;
     private Rigidbody2D rb;
     GameObject boss;
+
+    int playerDmg;
+    GameObject player;
     // Use this for initialization
     void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").gameObject;
         boss = GameObject.FindGameObjectWithTag("boss").gameObject;
         // miniBoss = GameObject.FindGameObjectWithTag("miniBoss").transform;
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -51,10 +55,20 @@ public class homingMissile : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
+            if (player.GetComponent<CircleCollider2D>().radius == 1.37f)
+            {
+                playerDmg = 0;
+            }
+            else
+            {
+                playerDmg = 1;
+            }
+            target.GetComponent<playerMovement>().takeDmg(playerDmg);
+            Instantiate(destroyParticle, transform.position, transform.rotation);
+            // GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().takeDmg(playerDmg);
             Destroy(gameObject);
             // Destroy(target);
-            target.GetComponent<playerMovement>().takeDmg(4);
-            Instantiate(destroyParticle, transform.position, transform.rotation);
+            
         }
         if (collision.tag == "miniBoss")
         {

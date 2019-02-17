@@ -8,9 +8,11 @@ public class miniMissiles : MonoBehaviour {
     public GameObject destroyParticle;
     private Rigidbody2D rb;
     private cameraShake shake;
+    int playerDmg;
     //  public Transform target;
     // Use this for initialization
     void Start () {
+        playerDmg = 1;
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -47,7 +49,15 @@ public class miniMissiles : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             shake.CamShake2();
-            collision.GetComponent<playerMovement>().takeDmg(1);
+            if (collision.GetComponent<CircleCollider2D>().radius == 1.37f)
+            {
+                playerDmg = 0;
+            }
+            else
+            {
+                playerDmg = 1;
+            }
+            collision.GetComponent<playerMovement>().takeDmg(playerDmg);
         }
     }
 }

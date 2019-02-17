@@ -12,11 +12,12 @@ public class bulletTravel : MonoBehaviour {
     public GameObject destroyParticle;
     public float playerScore = 0f;
     int score = 0;
-    
+    public int bossDmg;
     private cameraShake shake;
     public int dmg ;
     // Use this for initialization
     void Start () {
+        bossDmg = 5;
         Destroy(gameObject, lifeTime);
       //  damageSound = GetComponent<AudioSource>();
         Invoke("bulletDestroy", lifeTime);
@@ -50,7 +51,7 @@ public class bulletTravel : MonoBehaviour {
     {
         if(collision.CompareTag("boss"))
         {
-            collision.GetComponent<bossAI>().bossDecreaseHealth(dmg);
+            collision.GetComponent<bossAI>().bossDecreaseHealth(bossDmg);
             shake.CamShake2();
             bulletDestroy();
         }

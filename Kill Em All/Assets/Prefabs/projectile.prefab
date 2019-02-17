@@ -225,6 +225,7 @@ MonoBehaviour:
   destroyParticle: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
     type: 2}
   playerScore: 0
+  bossDmg: 5
   dmg: 1
 --- !u!212 &212086072867132234
 SpriteRenderer:

@@ -77,7 +77,7 @@ public class enemyspawner : MonoBehaviour {
                 clip = musicArray[index];
                 source.clip = clip;
                 source.Play();
-                hazard.GetComponent<enemy>().health += 1;
+                hazard.GetComponent<enemy>().health += 2;
                 //bullet.GetComponent<bulletTravel>().dmg += 1;
                 waveNumber += 1;
 
@@ -85,7 +85,7 @@ public class enemyspawner : MonoBehaviour {
                 //healthincrease += 1;
                 waveWait += 10;
                 // GameObject.Find("player").GetComponent<playerMovement>().health += healthincrease;
-                hazardCount += 1;
+                hazardCount += 3;
                 spawnWait -= 0.5f;
 
             
