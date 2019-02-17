@@ -6,7 +6,13 @@ using TMPro;
 using UnityStandardAssets.CrossPlatformInput;
 public class playerMovement : MonoBehaviour {
 
+    public GameObject playerShield;
+    public GameObject player;
 
+    public GameObject bullets;
+   // public bool isShieldOn;
+    public int seconds ;
+    public GameObject playerMissileCarrier;
     public float speed;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -14,16 +20,58 @@ public class playerMovement : MonoBehaviour {
     public int health = 3;
     public TMP_Text healthtext;
     //public GameObject healthText;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    
+
+    void Start () {
+        //isShieldOn = false;
+
+        bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
+        playerShield.GetComponent<SpriteRenderer>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
-	}
+       
+    }
     public void takeDmg(int damage)
     {
         health -= damage;
     }
-	// Update is called once per frame
-	void Update () {
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "shieldIcon")
+        {
+            Destroy(collision.gameObject);
+            //isShieldOn = true;
+            playerShield.GetComponent<SpriteRenderer>().enabled = true;
+            player.GetComponent<CircleCollider2D>().radius = 1.37f;
+            StartCoroutine(disableShield(seconds));
+            //playerShield.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (collision.tag == "missileIcon")
+        {
+             Destroy(collision.gameObject);
+            speed = 80;
+            bullets.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            bullets.GetComponent<bulletTravel>().dmg = 4;
+            player.GetComponent<shooterScript>().startDelayShot = 0.05f;
+            StartCoroutine(disableMissile());
+        }
+
+
+
+        }
+    IEnumerator disableMissile()
+    {
+        yield return new WaitForSeconds(4);
+
+        bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
+        bullets.GetComponent<bulletTravel>().dmg = 1;
+        player.GetComponent<shooterScript>().startDelayShot = 0.1f;
+        speed = 40;
+    }
+    // Update is called once per frame
+    void Update () {
         
         healthtext.text = "Health:" + health;
         if (health <= 0)
@@ -33,11 +81,27 @@ public class playerMovement : MonoBehaviour {
             Destroy(gameObject);
             
         }
-   
+        /*if (isShieldOn == true)
+        {
+            
+        }
+        if (isShieldOn == false)
+        {
+        }*/
 
-            Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             moveVelocity = move.normalized * speed;
        
+    }
+    IEnumerator disableShield(int time)
+    {
+        yield return new WaitForSeconds(time);
+
+        playerShield.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<CircleCollider2D>().radius = 0.91f;
+        //StopCoroutine(disableShield(1));
+        //playerShield.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void FixedUpdate()

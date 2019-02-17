@@ -7,12 +7,16 @@ public class enemyBullet : MonoBehaviour {
     public float speed;
     public float lifeTime;
     private Transform player;
+    private int playerDmg;
     private Vector2 target;
     public float distance;
     public LayerMask solid;
+    public GameObject explosionParticle;
+    private GameObject explosionClone;
     // Use this for initializatio
     private cameraShake shake;
     void Start () {
+        playerDmg = 1;
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 
         //  Invoke("destroyProjectile", lifeTime);
@@ -46,19 +50,31 @@ public class enemyBullet : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+           
             shake.CamShake2();
             Debug.Log("player detected");
             removeHealth();
             DestroyProjectile();
         }
+       
     }
 
     void removeHealth()
     {
-        GameObject.Find("player").GetComponent<playerMovement>().takeDmg(1);
+        if (player.GetComponent<CircleCollider2D>().radius == 1.37f)
+        {
+            playerDmg = 0;
+        }
+        else
+        {
+            playerDmg = 1;
+        }
+        GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().takeDmg(playerDmg);
     }
     void DestroyProjectile()
     {
+        explosionClone = (GameObject) Instantiate(explosionParticle, transform.position, transform.rotation);
+        Destroy(explosionClone,1f);
       //  GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().health -= 1;
         Destroy(gameObject);
     }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class pauseMenue : MonoBehaviour
 {
     public GameObject pausemenue;
+    public GameObject enemy1;
     // Use this for initialization
     void Start()
     {
@@ -36,6 +37,7 @@ public class pauseMenue : MonoBehaviour
     {
         Time.timeScale = 1;
         pausemenue.SetActive(false);
+        enemy1.GetComponent<enemy>().health = 5;
         SceneManager.LoadScene("intro");
     }
     public void quitGame()

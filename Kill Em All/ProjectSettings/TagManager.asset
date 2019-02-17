@@ -13,6 +13,11 @@ TagManager:
   - boss
   - miniBoss
   - smallEnemySpawner
+  - Shield
+  - shieldIcon
+  - bossHandle
+  - wall
+  - missileIcon
   layers:
   - Default
   - TransparentFX

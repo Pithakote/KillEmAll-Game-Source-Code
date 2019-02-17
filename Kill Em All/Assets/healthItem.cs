@@ -36,7 +36,7 @@ public class healthItem : MonoBehaviour
 
     void addHealth()
     {
-        GameObject.Find("player").GetComponent<playerMovement>().health += 1 ;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().health += 1 ;
     }
     void DestroyProjectile()
     {

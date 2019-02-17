@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class reload : MonoBehaviour
 {
-
+    public GameObject enemy1;
     // Use this for initialization
     void Start()
     {
@@ -19,10 +19,12 @@ public class reload : MonoBehaviour
 
     public void reloadSceneOne()
     {
+        enemy1.GetComponent<enemy>().health = 5;
         SceneManager.LoadScene("mainGame");
     }
     public void loadMainMenue()
     {
+        enemy1.GetComponent<enemy>().health = 5;
         SceneManager.LoadScene("intro");
     }
     public void quit()

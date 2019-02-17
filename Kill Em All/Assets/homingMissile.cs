@@ -43,7 +43,7 @@ public class homingMissile : MonoBehaviour {
     IEnumerator destroyAfter()
     {
         
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(15);
         Destroy(gameObject);
 
     }

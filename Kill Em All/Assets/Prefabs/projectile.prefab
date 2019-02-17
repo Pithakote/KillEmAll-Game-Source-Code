@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1058490422628368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.07929, y: 36.067608, z: 0}
-  m_LocalScale: {x: 1.061424, y: 1.061424, z: 2.122848}
+  m_LocalScale: {x: 1.061424, y: 1.061424, z: 1.061424}
   m_Children:
   - {fileID: 4227328092725762}
   m_Father: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   destroyParticle: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
     type: 2}
   playerScore: 0
-  dmg: 213
+  dmg: 1
 --- !u!212 &212086072867132234
 SpriteRenderer:
   m_ObjectHideFlags: 1

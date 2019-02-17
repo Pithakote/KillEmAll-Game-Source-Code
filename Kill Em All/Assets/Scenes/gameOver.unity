@@ -558,7 +558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraAnim: {fileID: 519420030}
-  music: {fileID: 8300000, guid: 54dfbe3c745377e4c94e7b9d3c7ce206, type: 3}
+  music:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   damageSound: {fileID: 452464965}
 --- !u!4 &452464964
 Transform:
@@ -1273,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6111a25c534bbd64c8945bbaccaf1e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy1: {fileID: 1074704412838110, guid: 33ef1b77fa869524b9069f6bd7852c7a, type: 2}
 --- !u!114 &809782756
 MonoBehaviour:
   m_ObjectHideFlags: 0

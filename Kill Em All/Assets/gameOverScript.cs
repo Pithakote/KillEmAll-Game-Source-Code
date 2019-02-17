@@ -7,6 +7,7 @@ public class gameOverScript : MonoBehaviour
 {
     int wavenumber = 0;
     public TMP_Text scoretext;
+    
     // Use this for initialization
     void Start()
     {

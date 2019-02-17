@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class enemy : MonoBehaviour {
-    public int health = 100;
+    public int health ;
     private cameraShake shake;
     public GameObject deathParticle;
     // Use this for initialization
@@ -11,6 +11,7 @@ public class enemy : MonoBehaviour {
     public AudioSource damageSound;
 
     void Start () {
+        health = 5;
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
         damageSound.clip = music;
     }

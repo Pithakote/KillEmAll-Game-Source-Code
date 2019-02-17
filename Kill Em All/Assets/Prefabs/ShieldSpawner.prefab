@@ -9,79 +9,61 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1709469132035402}
+  m_RootGameObject: {fileID: 1025605551463206}
   m_IsPrefabAsset: 1
---- !u!1 &1709469132035402
+--- !u!1 &1025605551463206
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4848658929563174}
-  - component: {fileID: 212003988704467298}
-  - component: {fileID: 114259434444636038}
-  - component: {fileID: 58233929124455606}
-  m_Layer: 8
-  m_Name: bossBullet
+  - component: {fileID: 4399287616439300}
+  - component: {fileID: 114402293192592008}
+  - component: {fileID: 212587776092038160}
+  m_Layer: 0
+  m_Name: ShieldSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4848658929563174
+--- !u!4 &4399287616439300
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709469132035402}
+  m_GameObject: {fileID: 1025605551463206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.796087, y: -4.195264, z: 0}
-  m_LocalScale: {x: 27.55186, y: 27.55186, z: 29.547466}
+  m_LocalPosition: {x: -98.4, y: 50.2, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58233929124455606
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709469132035402}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &114259434444636038
+--- !u!114 &114402293192592008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709469132035402}
+  m_GameObject: {fileID: 1025605551463206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a19e6f93ac7e6e47be30e68e8dc8fd3, type: 3}
+  m_Script: {fileID: 11500000, guid: ca53f7ca64ee03b46af9a7e6f7b551ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  lifeTime: 15
-  distance: 10
-  solid:
-    serializedVersion: 2
-    m_Bits: 1024
-  explosionParticle: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
---- !u!212 &212003988704467298
+  shield: {fileID: 1265819617763584, guid: 81171528e709ef94a84dfde9b54e61ae, type: 2}
+  spawnCount: 1
+  spawnWait: 1
+  startWait: 2
+  waveWait: 5
+--- !u!212 &212587776092038160
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709469132035402}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1025605551463206}
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -110,12 +92,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.97576314, b: 0, a: 1}
+  m_Sprite: {fileID: 21300028, guid: bf8ddafe189b90247b484ca8b8e3ceca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.84, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
