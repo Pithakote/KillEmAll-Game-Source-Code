@@ -26,7 +26,7 @@ public class playerMovement : MonoBehaviour {
 
     void Start () {
         //isShieldOn = false;
-        health = 15;
+        health = 12;
         bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
         playerShield.GetComponent<SpriteRenderer>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
@@ -83,9 +83,9 @@ public class playerMovement : MonoBehaviour {
             Destroy(gameObject);
             
         }
-        if (health >= 15)
+        if (health >= 12)
         {
-            health = 15;
+            health = 12;
         }
         /*if (isShieldOn == true)
         {

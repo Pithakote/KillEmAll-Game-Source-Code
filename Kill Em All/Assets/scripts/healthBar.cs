@@ -7,7 +7,7 @@ public class healthBar : MonoBehaviour
     public Transform bar;
     private float ratio;
     // Use this for initialization
-    private float maxHealth = 15;
+    private float maxHealth = 12;
     void Start()
     {
 
