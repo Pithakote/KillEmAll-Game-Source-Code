@@ -74,7 +74,7 @@ public class enemyBullet : MonoBehaviour {
     void DestroyProjectile()
     {
         explosionClone = (GameObject) Instantiate(explosionParticle, transform.position, transform.rotation);
-        Destroy(explosionClone,1f);
+        Destroy(explosionClone,0.5f);
       //  GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().health -= 1;
         Destroy(gameObject);
     }

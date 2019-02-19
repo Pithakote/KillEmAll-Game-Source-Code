@@ -32,7 +32,7 @@ public class healthBoost : MonoBehaviour {
             yield return new WaitForSeconds(waveWait);
             //  GameObject.Find("player").GetComponent<playerMovement>().health += 2;
             //spawnCount += 1;
-            spawnWait -= 0.02f;
+            //spawnWait -= 0.02f;
             health.GetComponent<healthItem>().lifeTime -= 0.2f;
         }
     }

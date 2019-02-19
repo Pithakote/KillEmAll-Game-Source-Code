@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bee013b833b12d49b5615f703708b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 4
+  lifetime: 3
 --- !u!212 &212465818714067836
 SpriteRenderer:
   m_ObjectHideFlags: 1

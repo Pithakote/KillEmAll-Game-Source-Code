@@ -24,9 +24,13 @@ public class enemyspawner : MonoBehaviour {
     public int nowaveNumber = 7;
     public int maxWave = 3;
     public GameObject boss;
+
+    GameObject healthSpawner;
     IEnumerator spawnStop;
     void Start()
     {
+        healthSpawner = GameObject.FindGameObjectWithTag("healthSpawner").gameObject;
+
         boss.SetActive(false);
          spawnStop = SpawnWaves();
         StartCoroutine(spawnStop);
@@ -67,6 +71,7 @@ public class enemyspawner : MonoBehaviour {
                     StopCoroutine(spawnStop);
                     //   SceneManager.LoadScene("final");
                 }
+               
                 Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 100));//, transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
@@ -87,8 +92,32 @@ public class enemyspawner : MonoBehaviour {
                 // GameObject.Find("player").GetComponent<playerMovement>().health += healthincrease;
                 hazardCount += 3;
                 spawnWait -= 0.5f;
+            if (waveNumber == 4)
+            {
+                healthSpawner.GetComponent<healthBoost>().spawnCount = 4;
+                healthSpawner.GetComponent<healthBoost>().spawnWait = 2;
+                healthSpawner.GetComponent<healthBoost>().waveWait = 2;
+                
+               
+            }
+            if (waveNumber == 5)
+            {
+                healthSpawner.GetComponent<healthBoost>().spawnCount = 3;
+                healthSpawner.GetComponent<healthBoost>().spawnWait = 2;
+                healthSpawner.GetComponent<healthBoost>().waveWait = 2;
+            }
+            if (waveNumber == 6)
+            {
+                healthSpawner.GetComponent<healthBoost>().spawnCount = 3;
 
-            
+                healthSpawner.GetComponent<healthBoost>().spawnWait = 4;
+                healthSpawner.GetComponent<healthBoost>().waveWait = 5;
+            }
+            else
+            {
+
+            }
+
 
 
 

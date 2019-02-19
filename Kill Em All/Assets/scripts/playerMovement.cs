@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour {
 
     public GameObject playerShield;
     public GameObject player;
-
+    public GameObject sceneManager;
     public GameObject bullets;
    // public bool isShieldOn;
     public int seconds ;
@@ -26,8 +26,9 @@ public class playerMovement : MonoBehaviour {
 
     void Start () {
         //isShieldOn = false;
-        health = 12;
-        bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
+        sceneManager = GameObject.FindGameObjectWithTag("transitionScene").gameObject;
+        health = 10;
+        bullets.transform.localScale = new Vector3(39.34698f, 39.34698f, 39.34698f);
         playerShield.GetComponent<SpriteRenderer>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
        
@@ -52,9 +53,9 @@ public class playerMovement : MonoBehaviour {
         {
              Destroy(collision.gameObject);
             speed = 80;
-            bullets.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            bullets.transform.localScale = new Vector3(55, 55, 55);
             bullets.GetComponent<bulletTravel>().dmg = 2;
-            bullets.GetComponent<bulletTravel>().bossDmg = 8;
+            bullets.GetComponent<bulletTravel>().bossDmg = 6;
             player.GetComponent<shooterScript>().startDelayShot = 0.05f;
             StartCoroutine(disableMissile());
         }
@@ -66,7 +67,7 @@ public class playerMovement : MonoBehaviour {
     {
         yield return new WaitForSeconds(3);
 
-        bullets.transform.localScale = new Vector3(1.061424f, 1.061424f, 1.061424f);
+        bullets.transform.localScale = new Vector3(39.34698f, 39.34698f, 39.34698f);
         bullets.GetComponent<bulletTravel>().dmg = 1;
         bullets.GetComponent<bulletTravel>().bossDmg = 5;
         player.GetComponent<shooterScript>().startDelayShot = 0.1f;
@@ -78,14 +79,15 @@ public class playerMovement : MonoBehaviour {
         healthtext.text = "Health:" + health;
         if (health <= 0)
         {
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            StartCoroutine(changeScene());
             Instantiate(deathParticle, transform.position, Quaternion.identity);
-            SceneManager.LoadScene("gameOver");
-            Destroy(gameObject);
+            
             
         }
-        if (health >= 12)
+        if (health >= 10)
         {
-            health = 12;
+            health = 10;
         }
         /*if (isShieldOn == true)
         {
@@ -99,6 +101,13 @@ public class playerMovement : MonoBehaviour {
         Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             moveVelocity = move.normalized * speed;
        
+    }
+    IEnumerator changeScene()
+    {
+        sceneManager.GetComponent<sceneTransition>().changeScene();
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("gameOver");
+        Destroy(gameObject);
     }
     IEnumerator disableShield(int time)
     {

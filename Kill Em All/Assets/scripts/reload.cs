@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class reload : MonoBehaviour
 {
+    public GameObject sceneManager;
     public GameObject enemy1;
+    string sceneName;
     // Use this for initialization
     void Start()
     {
+        sceneManager = GameObject.FindGameObjectWithTag("transitionScene").gameObject;
 
     }
 
@@ -20,12 +23,21 @@ public class reload : MonoBehaviour
     public void reloadSceneOne()
     {
         enemy1.GetComponent<enemy>().health = 5;
-        SceneManager.LoadScene("mainGame");
+        sceneName = "mainGame";
+        StartCoroutine(changeScene());
     }
     public void loadMainMenue()
     {
         enemy1.GetComponent<enemy>().health = 5;
-        SceneManager.LoadScene("intro");
+        sceneName = "intro";
+        StartCoroutine(changeScene());
+    }
+    IEnumerator changeScene()
+    {
+        sceneManager.GetComponent<sceneTransition>().changeScene();
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(sceneName);
+        Destroy(gameObject);
     }
     public void quit()
     {

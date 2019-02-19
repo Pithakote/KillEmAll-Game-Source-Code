@@ -23,11 +23,13 @@ public class bossAI : MonoBehaviour {
     public Transform player;
     public bool move = false;
     public GameObject miniBoss;
-
-   // public int maxHealth = 2000;
+    public GameObject sceneManager;
+    // public int maxHealth = 2000;
     // Use this for initialization
     void Start () {
         healthBoss = 2000;
+        sceneManager = GameObject.FindGameObjectWithTag("transitionScene").gameObject;
+
         //wave.text = "BOSS ";
         shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
         gameObject.GetComponent<hmissileScript>().enabled = false;
@@ -58,17 +60,22 @@ public class bossAI : MonoBehaviour {
     {
         if (healthBoss <= 1000)
         {
+
+            enemyBullet.GetComponent<enemyBullet>().speed = 42;
+            //enemyBullet.GetComponent<enemyBullet>().distance = 30;
             miniBoss.SetActive(true);
             gameObject.GetComponent<hmissileScript>().enabled = true;
             move = true;
-           // miniBoss.SetActive(true);
-
+            // miniBoss.SetActive(true);
+            startTimeBetShots = 0.3f;
             Debug.Log("Health boss 50");
             
         }
         if (healthBoss <= 1500)
         {
-            
+            enemyBullet.GetComponent<enemyBullet>().speed = 35;
+            enemyBullet.GetComponent<enemyBullet>().distance = 30;
+            startTimeBetShots = 0.5f;
             bossAnim.SetTrigger("moveTrigger");
 
         }
@@ -89,8 +96,9 @@ public class bossAI : MonoBehaviour {
         
         if (healthBoss <= 0)
         {
-            SceneManager.LoadScene("yes");
-            bossDefeat = true;
+            StartCoroutine(changeScene());
+
+            
            // Destroy(gameObject);
 
         }
@@ -99,8 +107,14 @@ public class bossAI : MonoBehaviour {
             gameObject.SetActive(false);
         }
     }
-
-   public void bossDecreaseHealth(int damage)
+    IEnumerator changeScene()
+    {
+        sceneManager.GetComponent<sceneTransition>().changeScene();
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("yes");
+        bossDefeat = true;
+    }
+    public void bossDecreaseHealth(int damage)
     {
         healthBoss -= damage;
     }

@@ -15,6 +15,7 @@ public class bulletTravel : MonoBehaviour {
     public int bossDmg;
     private cameraShake shake;
     public int dmg ;
+    private GameObject explosionClone;
     // Use this for initialization
     void Start () {
         bossDmg = 5;
@@ -59,7 +60,8 @@ public class bulletTravel : MonoBehaviour {
     void bulletDestroy()
     {
 
-        Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        explosionClone = (GameObject)Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        Destroy(explosionClone, 0.5f);
         Destroy(gameObject);
     }
 }

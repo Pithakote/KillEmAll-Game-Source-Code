@@ -18,6 +18,8 @@ TagManager:
   - bossHandle
   - wall
   - missileIcon
+  - healthSpawner
+  - transitionScene
   layers:
   - Default
   - TransparentFX
