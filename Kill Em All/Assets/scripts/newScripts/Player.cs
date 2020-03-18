@@ -39,7 +39,7 @@ public class Player : Ships
             if (Input.GetMouseButton(0))
             {
                 foreach (Transform spawnPoint in bulletSpawners)
-                    Instantiate(bullets, spawnPoint.position, Quaternion.identity);
+                    Instantiate(bullets, spawnPoint.position, spawnPoint.transform.rotation);
 
                 delayShot = startDelayShot;
             }

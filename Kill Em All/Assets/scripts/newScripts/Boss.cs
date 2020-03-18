@@ -7,7 +7,7 @@ public class Boss : enemies
     [SerializeField]
     GameObject homingSpawner;
     [SerializeField]
-    Animator bossAnim;
+    Animator bossAnim;//the game object 9B uses animationcontroller 9B1. Use 9B gameobject in this. the boss animator uses 9B, that is responsible for bringing the boss to the screen
     [SerializeField]
     GameObject homingMissiles;
     [SerializeField]
@@ -15,7 +15,9 @@ public class Boss : enemies
     [SerializeField]
     GameObject miniBoss;
     [SerializeField]
-    GameObject enemyBullet;
+    Transform initialPosition;
+    [SerializeField]
+    bool isInitialPos;
     // Start is called before the first frame update
     public void setVariables(int health, int delaytime, int startdelaytime)
     {
@@ -25,7 +27,8 @@ public class Boss : enemies
     }
     protected override void Start()
     {
-        bossAnim = GetComponent<Animator>();
+        isInitialPos = false;
+         bossAnim = GetComponent<Animator>();
         gameObject.GetComponent<hmissileScript>().enabled = false;
         miniBoss.SetActive(false);
         base.Start();
@@ -41,7 +44,15 @@ public class Boss : enemies
     }
     protected override void move()
     {
-        if (this.health <= 1000)
+        if (!isInitialPos)
+        {
+            transform.position = Vector2.MoveTowards(gameObject.transform.position, initialPosition.position, 10f * Time.deltaTime);
+            if(transform.position == initialPosition.position)
+            isInitialPos = true;
+        }//  isInitialPos = true;
+        
+
+        if (health <= 1500)
         {
 
             bullets.GetComponent<enemyBullet>().speed = 42;
@@ -54,12 +65,13 @@ public class Boss : enemies
             Debug.Log("Health boss 50");
 
         }
-        if (this.health <= 1500)
+        if (health <= 1800)
         {
             bullets.GetComponent<enemyBullet>().speed = 35;
             bullets.GetComponent<enemyBullet>().distance = 30;
             startDelayShot = 0.5f;
-            bossAnim.SetTrigger("moveTrigger");
+            transform.position = Vector2.Lerp(new Vector2(0,transform.position.y), new Vector2(1, transform.position.y),2);
+           // bossAnim.SetTrigger("moveTrigger");
 
         }
     }

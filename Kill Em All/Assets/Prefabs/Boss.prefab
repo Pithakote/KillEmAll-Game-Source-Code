@@ -175,7 +175,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287399850575570}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5a0a9b1412fe6944cbbdd3e1add62f73, type: 2}
   m_CullingMode: 0
@@ -240,14 +240,15 @@ MonoBehaviour:
   damageSoundSource: {fileID: 0}
   stopDist: 0
   retreatDist: 0
+  shake: {fileID: 0}
   homingSpawner: {fileID: 1119624292358116}
   bossAnim: {fileID: 0}
   homingMissiles: {fileID: 1939778108798234, guid: a2c8bab6b4258da41b654e266b90fe43,
     type: 3}
   isMove: 0
   miniBoss: {fileID: 1211833367105304, guid: e7fa3b7989846864ba8c7972f17618a5, type: 3}
-  enemyBullet: {fileID: 1119028734134164, guid: 796e1e7a6ff96c7418d268e32d1299ae,
-    type: 3}
+  initialPosition: {fileID: 0}
+  isInitialPos: 0
 --- !u!114 &6359944684805175551
 MonoBehaviour:
   m_ObjectHideFlags: 0
