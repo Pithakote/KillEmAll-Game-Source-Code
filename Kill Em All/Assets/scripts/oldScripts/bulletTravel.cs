@@ -52,7 +52,7 @@ public class bulletTravel : MonoBehaviour {
     {
         if(collision.CompareTag("boss"))
         {
-            collision.GetComponent<bossAI>().bossDecreaseHealth(bossDmg);
+            collision.GetComponent<Boss>().takeDamage(bossDmg);
             shake.CamShake2();
             bulletDestroy();
         }

@@ -17,7 +17,7 @@ public class healthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().health;
+        int currentHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Health;
         float hp = (float)currentHealth;
         ratio = currentHealth / maxHealth;
         bar.localScale = new Vector3(ratio, 1f);

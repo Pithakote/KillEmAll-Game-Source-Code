@@ -11,7 +11,7 @@ public class shooterScript : MonoBehaviour {
     public Transform secondShooter;
     public Transform thirdShooter;
     public Transform fourthShooter;
-    private float delayShot;
+    public float delayShot;
     public float startDelayShot;
     
     private cameraShake shake;

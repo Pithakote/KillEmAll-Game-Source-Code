@@ -69,7 +69,7 @@ public class enemyBullet : MonoBehaviour {
         {
             playerDmg = 1;
         }
-        GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().takeDmg(playerDmg);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().takeDamage(playerDmg);
     }
     void DestroyProjectile()
     {

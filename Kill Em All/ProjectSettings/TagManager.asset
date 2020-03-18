@@ -20,6 +20,7 @@ TagManager:
   - missileIcon
   - healthSpawner
   - transitionScene
+  - enemySwarm
   layers:
   - Default
   - TransparentFX
