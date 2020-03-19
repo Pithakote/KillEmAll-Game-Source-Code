@@ -43,12 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe4c3c8be6eed8479cd85ace124849f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerInstanceInctance: {fileID: 0}
+  miniMissilesInstance: {fileID: 5500620614331831957, guid: 796e1e7a6ff96c7418d268e32d1299ae,
+    type: 3}
+  m_playerInstanceInctance: {fileID: 1368916256550163488, guid: 2befd3f8a11ed08408e5a614c85700d8,
+    type: 3}
   m_enemyInstance: {fileID: 1835562256733948713, guid: 33ef1b77fa869524b9069f6bd7852c7a,
     type: 3}
   bossInstance: {fileID: 8018663891086460075, guid: b7f84e9f13f8f2042a4e0bed025cfa36,
     type: 3}
+  miniBossSpawnerInstance: {fileID: 114286088383226172, guid: e7fa3b7989846864ba8c7972f17618a5,
+    type: 3}
   enemyNormalBulletInstance: {fileID: 1536615448710321272, guid: 8a258607b222cb240bd45a8517e86b84,
     type: 3}
   playerNormalBulletInstance: {fileID: 388205416077104570, guid: 92a82ee2c1fe9fe4a89ed2104d492342,
+    type: 3}
+  homingMissileInstance: {fileID: -3875338513158000538, guid: a2c8bab6b4258da41b654e266b90fe43,
     type: 3}

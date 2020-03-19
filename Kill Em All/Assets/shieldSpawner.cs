@@ -34,17 +34,17 @@ public class shieldSpawner : MonoBehaviour
             //  GameObject.Find("player").GetComponent<playerMovement>().health += 2;
             //spawnCount += 1;
             spawnWait -= 0.02f;
-            player.GetComponent<playerMovement>().seconds += 1;
+           // player.GetComponent<playerMovement>().seconds += 1;
            // shield.GetComponent<healthItem>().lifeTime -= 0.2f;
 
         }
     }
     public void Update()
     {
-        if (player.GetComponent<playerMovement>().seconds >= 8)
+       /* if (player.GetComponent<Player>().seconds >= 8)
         {
             player.GetComponent<playerMovement>().seconds = 8;
-        }
+        }*/
     }
 
 

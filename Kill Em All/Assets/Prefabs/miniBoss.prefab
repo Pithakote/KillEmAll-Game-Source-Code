@@ -42,15 +42,15 @@ GameObject:
   - component: {fileID: 212736556870894100}
   - component: {fileID: 61697437649557834}
   - component: {fileID: 50995635422937594}
-  - component: {fileID: 114548556847001244}
   - component: {fileID: 114286088383226172}
+  - component: {fileID: -5193858245067670779}
   m_Layer: 0
   m_Name: miniBoss
   m_TagString: miniBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4637527194661886
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211833367105304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.2, y: -25.4, z: -1}
+  m_LocalPosition: {x: -56.2, y: -25.4, z: 0}
   m_LocalScale: {x: 12.703, y: 12.703, z: 12.703}
   m_Children:
   - {fileID: 4869323048665636}
@@ -164,19 +164,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &114548556847001244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211833367105304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09767487e8c48ec4f9e05f5e1eabc9d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyParticle: {fileID: 100000, guid: bf495eacf58e31146ab012aa89ac68da, type: 3}
 --- !u!114 &114286088383226172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,15 +176,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691e5dcd24f012e4492cc9c885263568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniMissiles: {fileID: 1119028734134164, guid: 796e1e7a6ff96c7418d268e32d1299ae,
+  health: 500
+  isDead: 0
+  bulletSpawners:
+  - {fileID: 4869323048665636}
+  - {fileID: 4004860821658800}
+  bullets: {fileID: 1119028734134164, guid: 796e1e7a6ff96c7418d268e32d1299ae, type: 3}
+  speed: 0
+  delayShot: 0
+  startDelayShot: 20
+  deathParticle: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
     type: 3}
-  miniMissilesSpawner: {fileID: 4869323048665636}
-  miniMissilesSpawner2: {fileID: 4004860821658800}
-  missilesCount: 4
-  spawnWait: 0.8
-  startWait: 2
-  waveWait: 5
-  waveNumber: 5
+  damageSoundSource: {fileID: -5193858245067670779}
+  stopDist: 0
+  retreatDist: 0
+  shake: {fileID: 0}
+  isInitialPos: 0
+  isReached: 0
+  firstPos: {fileID: 0}
+--- !u!82 &-5193858245067670779
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211833367105304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 952d5375394bba84da716fd9eb162393, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1910343230278424
 GameObject:
   m_ObjectHideFlags: 0

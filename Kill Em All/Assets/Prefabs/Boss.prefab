@@ -42,8 +42,6 @@ GameObject:
   - component: {fileID: 212624729891767146}
   - component: {fileID: 61701277126005164}
   - component: {fileID: 50183910813384534}
-  - component: {fileID: 95205645693606858}
-  - component: {fileID: 114010168669499928}
   - component: {fileID: 8018663891086460075}
   - component: {fileID: 6359944684805175551}
   m_Layer: 0
@@ -167,54 +165,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!95 &95205645693606858
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287399850575570}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a0a9b1412fe6944cbbdd3e1add62f73, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114010168669499928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287399850575570}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3463cc84db4e2b04ea72a13dd9eca59c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBetShots: 0.8
-  spawner1: {fileID: 4807767005894882}
-  spawner2: {fileID: 4002347949599458}
-  enemyBullet: {fileID: 1709469132035402, guid: 1dc69cabb8b43d245955802ad596b4db,
-    type: 3}
-  healthBoss: 2000
-  bossDefeat: 0
-  homingSpawner: {fileID: 4730613779611280}
-  bossAnim: {fileID: 0}
-  homingMissiles: {fileID: 1939778108798234, guid: a2c8bab6b4258da41b654e266b90fe43,
-    type: 3}
-  wave: {fileID: 0}
-  waveNumber: 3
-  player: {fileID: 0}
-  move: 0
-  miniBoss: {fileID: 0}
-  sceneManager: {fileID: 0}
 --- !u!114 &8018663891086460075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f79f028e078f4b4cb74eed071ac605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 2000
   isDead: 0
   bulletSpawners:
   - {fileID: 4807767005894882}
@@ -235,7 +185,7 @@ MonoBehaviour:
   bullets: {fileID: 1709469132035402, guid: 1dc69cabb8b43d245955802ad596b4db, type: 3}
   speed: 0
   delayShot: 0
-  startDelayShot: 0
+  startDelayShot: 1
   deathParticle: {fileID: 0}
   damageSoundSource: {fileID: 0}
   stopDist: 0

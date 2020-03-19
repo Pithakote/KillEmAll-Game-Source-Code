@@ -17,6 +17,7 @@ public class Bullets : MonoBehaviour
     protected string targetTagName;
     protected virtual void Start()
     {
+        damage = 2;
        // targetTagName = "Player2";       
     }
     protected virtual void Update()

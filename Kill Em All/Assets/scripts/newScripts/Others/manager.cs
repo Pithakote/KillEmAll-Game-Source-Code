@@ -29,19 +29,35 @@ public class manager : MonoBehaviour
 
        playerNormalBulletInstance.SetVariables(84,3,5,8, "Enemy");
        enemyNormalBulletInstance.SetVariables(48,10, "Player");
+        homingMissileInstance.SetVariables(30,200,"Player");
+        miniMissilesInstance.SetVariables(30,"Player");
+        miniBossSpawnerInstance.setVariables(500,0,20);
        //set the player health, speed, turning speed, delayshot and startdelayshot
 
     }
+    [SerializeField]
+    MovingMiniMissiles miniMissilesInstance;
+
    [SerializeField]
     Player m_playerInstanceInctance;
+
     [SerializeField]
     swarmEnemies m_enemyInstance;
+
     [SerializeField]
     Boss bossInstance;
+
+    [SerializeField]
+    MiniBossBulletSpawner miniBossSpawnerInstance;
+
     [SerializeField]
     EnemyBulletsNormal enemyNormalBulletInstance;
+
     [SerializeField]
     PlayerBulletsNormal playerNormalBulletInstance;
+
+    [SerializeField]
+    HomingMissile homingMissileInstance;
     public swarmEnemies enemyInstance
     {
         get
