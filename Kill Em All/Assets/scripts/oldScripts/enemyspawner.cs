@@ -24,11 +24,12 @@ public class enemyspawner : MonoBehaviour {
     public int nowaveNumber = 7;
     public int maxWave = 3;
     public GameObject boss;
-
+    Vector2 screenBoundray;
     GameObject healthSpawner;
     IEnumerator spawnStop;
     void Start()
     {
+        screenBoundray = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         healthSpawner = GameObject.FindGameObjectWithTag("healthSpawner").gameObject;
 
         boss.SetActive(false);
@@ -72,7 +73,7 @@ public class enemyspawner : MonoBehaviour {
                     //   SceneManager.LoadScene("final");
                 }
                
-                Vector2 spawnPosition = new Vector2(Random.Range(transform.position.x, transform.position.x + 150), Random.Range(transform.position.y, transform.position.y - 100));//, transform.position.z);
+                Vector2 spawnPosition = new Vector2(Random.Range(0, screenBoundray.x), Random.Range(screenBoundray.y, 0));//, transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait);

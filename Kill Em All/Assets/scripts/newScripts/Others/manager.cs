@@ -23,9 +23,12 @@ public class manager : MonoBehaviour
     private void Start()
     {
         Debug.Log("Manager start");
-        playerInstance.setVariables(10,40,5000,0,0.1f);
+        playerInstance.setVariables(500,40,5000,0,0.1f);
         enemyInstance.setVariables(35,20,50,45,0.6f);
         bossInstance.setVariables(2000,0,1);
+
+       playerNormalBulletInstance.SetVariables(84,3,5,8, "Enemy");
+       enemyNormalBulletInstance.SetVariables(48,10, "Player");
        //set the player health, speed, turning speed, delayshot and startdelayshot
 
     }
@@ -35,6 +38,10 @@ public class manager : MonoBehaviour
     swarmEnemies m_enemyInstance;
     [SerializeField]
     Boss bossInstance;
+    [SerializeField]
+    EnemyBulletsNormal enemyNormalBulletInstance;
+    [SerializeField]
+    PlayerBulletsNormal playerNormalBulletInstance;
     public swarmEnemies enemyInstance
     {
         get

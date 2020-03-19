@@ -18,6 +18,8 @@ public class Boss : enemies
     Transform initialPosition;
     [SerializeField]
     bool isInitialPos;
+  //  Vector2 screenBoundray;
+   
     // Start is called before the first frame update
     public void setVariables(int health, int delaytime, int startdelaytime)
     {
@@ -27,6 +29,7 @@ public class Boss : enemies
     }
     protected override void Start()
     {
+       // screenBoundray = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         isInitialPos = false;
          bossAnim = GetComponent<Animator>();
         gameObject.GetComponent<hmissileScript>().enabled = false;
@@ -70,7 +73,7 @@ public class Boss : enemies
             bullets.GetComponent<enemyBullet>().speed = 35;
             bullets.GetComponent<enemyBullet>().distance = 30;
             startDelayShot = 0.5f;
-            transform.position = Vector2.Lerp(new Vector2(0,transform.position.y), new Vector2(1, transform.position.y),2);
+            transform.position = Vector2.Lerp(new Vector2(leftScreen.x,transform.position.y), new Vector2(screenBounds.x, transform.position.y) , Mathf.PingPong(Time.time * 0.25f , 1f));//ping pong, second parameter determines how long the ship stays at the end, first parameter determines how long should it take to go to and from the two positions, larger number is faster and lowernumber is slower
            // bossAnim.SetTrigger("moveTrigger");
 
         }

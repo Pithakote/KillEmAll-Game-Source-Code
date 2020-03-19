@@ -10,7 +10,7 @@ public class enemies : Ships
     private float retreatDist;
     [SerializeField]
     private cameraShake shake;
-     Player playerinstance;
+    protected Player playerinstance;
     
     public virtual void setVariables(int enemyHealth, int speed, int stopDistance, float retreatDistance, float starttimebetweenshots)
     {
@@ -24,7 +24,7 @@ public class enemies : Ships
     protected override void Start()
     {
         base.Start();
-        shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
+      //  shake = GameObject.FindGameObjectWithTag("screenShake").GetComponent<cameraShake>();
 
         playerinstance = manager.managerInstance.playerInstance;
         delayShot= startDelayShot;
@@ -53,7 +53,7 @@ public class enemies : Ships
 
     public override void takeDamage(int damageAmount)
     {
-        shake.CamShake();
+      //  shake.CamShake();
         base.takeDamage(damageAmount);
 
     }

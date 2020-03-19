@@ -34,12 +34,12 @@ public class bulletTravel : MonoBehaviour {
 
         if (hitInfo.collider != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            if (hitInfo.collider.CompareTag("enemySwarm"))
             {
                 Debug.Log("Enemy dead");
                 shake.CamShake2();
               //  damageSound.Play();
-                hitInfo.collider.GetComponent<enemy>().takesDmg(dmg);
+                hitInfo.collider.GetComponent<swarmEnemies>().takeDamage(dmg);
             }
             bulletDestroy();
             

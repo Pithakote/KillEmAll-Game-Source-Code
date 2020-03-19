@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4215668139844330}
   - component: {fileID: 212086072867132234}
-  - component: {fileID: 114765223082602002}
   - component: {fileID: 82905652982651874}
   - component: {fileID: 61891138714518544}
   - component: {fileID: 58355743007696672}
+  - component: {fileID: 388205416077104570}
+  - component: {fileID: -8147726645435270170}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Untagged
@@ -86,28 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114765223082602002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058490422628368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584a4a7aa76cf254485f0cb36d7cf96f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 84.199745
-  lifeTime: 2
-  distance: 2
-  solid:
-    serializedVersion: 2
-    m_Bits: 768
-  destroyParticle: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
-  playerScore: 0
-  bossDmg: 5
-  dmg: 1
 --- !u!82 &82905652982651874
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,6 +225,51 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.06
+--- !u!114 &388205416077104570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058490422628368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d270e180c74f24fbd6ee7c2a2a7b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 84
+  lifeTime: 0
+  distance: 0
+  damage: 3
+  bossdamage: 5
+  explosion: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333, type: 3}
+  destroyParticle: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
+    type: 3}
+  solid:
+    serializedVersion: 2
+    m_Bits: 0
+  targetTagName: Enemy
+--- !u!50 &-8147726645435270170
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058490422628368}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1533086989040386
 GameObject:
   m_ObjectHideFlags: 0

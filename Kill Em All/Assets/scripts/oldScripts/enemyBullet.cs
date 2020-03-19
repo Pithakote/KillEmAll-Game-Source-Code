@@ -48,12 +48,13 @@ public class enemyBullet : MonoBehaviour {
 
      void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.layer == 10)
         {
            
             shake.CamShake2();
             Debug.Log("player detected");
-            removeHealth();
+          //  removeHealth();
+            other.gameObject.GetComponent<ITakeDamage>().takeDamage(playerDmg);
             DestroyProjectile();
         }
        
@@ -69,7 +70,7 @@ public class enemyBullet : MonoBehaviour {
         {
             playerDmg = 1;
         }
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().takeDamage(playerDmg);
+    //    GameObject.GetComponent<ITakeDamage>().takeDamage(playerDmg);
     }
     void DestroyProjectile()
     {

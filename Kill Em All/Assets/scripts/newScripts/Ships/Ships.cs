@@ -18,11 +18,12 @@ public class Ships : MonoBehaviour, ITakeDamage
     [SerializeField]
     protected float delayShot, startDelayShot;
     [SerializeField]
-    public GameObject deathParticle;
+    protected GameObject deathParticle;
     [SerializeField]
     AudioSource damageSoundSource;
-
-
+   protected Vector2 leftScreen;
+    protected Vector2 screenBounds;
+    protected float objectWidth, objectHeight;
     public int Health
     {
         get { return health; }
@@ -33,7 +34,18 @@ public class Ships : MonoBehaviour, ITakeDamage
     }
     protected virtual void Start()
     {
-        damageSoundSource = GetComponent<AudioSource>();
+        leftScreen = Camera.main.ViewportToWorldPoint(new Vector2(0, 1));
+
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
+        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
+        if (gameObject.GetComponent<AudioSource>())
+            damageSoundSource = GetComponent<AudioSource>();
+        else
+        {
+            gameObject.AddComponent<AudioSource>();
+            damageSoundSource = GetComponent<AudioSource>();
+        }
         isDead = false;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -50,7 +62,13 @@ public class Ships : MonoBehaviour, ITakeDamage
     {
 
     }
-
+    protected virtual void LateUpdate()
+    {
+        Vector3 viewPos = transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x-objectWidth);
+        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y- objectHeight);
+        transform.position = viewPos;
+    }
    protected virtual void shoot()
     {
         if (delayShot <= 0)
