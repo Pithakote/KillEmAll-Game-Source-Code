@@ -6,7 +6,7 @@ public class manager : MonoBehaviour
 {
    
     static manager m_managerInstance;
-    public static manager managerInstance
+    public static manager managerInstance//we only need one manager class to manage the constructors
     {
         get
         {
@@ -22,6 +22,8 @@ public class manager : MonoBehaviour
     }
     private void Start()
     {
+        //sets the variables of the ships 
+
         Debug.Log("Manager start");
         playerInstance.setVariables(500,40,5000,0,0.1f);
         enemyInstance.setVariables(35,20,50,45,0.6f);
@@ -58,6 +60,9 @@ public class manager : MonoBehaviour
 
     [SerializeField]
     HomingMissile homingMissileInstance;
+
+    #region UNUSED SINGLETONS
+    
     public swarmEnemies enemyInstance
     {
         get
@@ -86,4 +91,6 @@ public class manager : MonoBehaviour
         }
         
     }
+    
+    #endregion
 }

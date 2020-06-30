@@ -15,10 +15,13 @@ public class Bullets : MonoBehaviour
     protected int givenLayer;
     [SerializeField]
     protected string targetTagName;
+    protected Player playerinstance;
     protected virtual void Start()
     {
         damage = 2;
-       // targetTagName = "Player2";       
+        playerinstance = manager.managerInstance.playerInstance;
+
+        // targetTagName = "Player2";       
     }
     protected virtual void Update()
     {
@@ -26,8 +29,10 @@ public class Bullets : MonoBehaviour
     }
     protected virtual void move()
     {
-     //   RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, solid);
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        //   RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, solid);
+           transform.Translate(Vector2.up * speed * Time.deltaTime); //in order for this to work, the bullets need to access the vector2.up of the enemy it is spawning from
+      
+     
         DestroyBullet(2f);
     }
 

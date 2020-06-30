@@ -7,7 +7,8 @@ public class Player : Ships
 {
     [SerializeField]
     int turningSpeed;
-   
+
+    //the variables are set like this because unity doesn't allow constructors. The function is called in "maneger" class
     public void setVariables(int playerHealth, int speed, int turningspeed, float delayShot, float startDelayShot)
     {
         Debug.Log("Constructor");
@@ -20,6 +21,7 @@ public class Player : Ships
     
     protected override void move()
     {
+        
         Vector2 moveVector = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical"));
         Vector2 moveVelocity2 = moveVector.normalized * speed;
 

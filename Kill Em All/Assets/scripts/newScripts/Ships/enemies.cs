@@ -11,7 +11,8 @@ public class enemies : Ships
     [SerializeField]
     private cameraShake shake;
     protected Player playerinstance;
-    
+    protected Vector3 Direction;
+    //the variables are set like this because unity doesn't allow constructors. The function is called in "maneger" class
     public virtual void setVariables(int enemyHealth, int speed, int stopDistance, float retreatDistance, float starttimebetweenshots)
     {
         Debug.Log("Constructor");
@@ -28,7 +29,7 @@ public class enemies : Ships
 
         playerinstance = manager.managerInstance.playerInstance;
         delayShot= startDelayShot;
-    }
+        }
 
     protected override void move()
     {

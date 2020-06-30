@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
-public class Ships : MonoBehaviour, ITakeDamage
+[RequireComponent(typeof(Rigidbody2D))] //this code ensures that all classes that are ships should have rigidbody2d
+public class Ships : MonoBehaviour, ITakeDamage //ITakeDamage is an interface because all ships take damage
 {
+    //variables that will be shared with all the child classes
    [SerializeField]
     protected int health;
     [SerializeField]
@@ -21,9 +22,11 @@ public class Ships : MonoBehaviour, ITakeDamage
     protected GameObject deathParticle;
     [SerializeField]
     AudioSource damageSoundSource;
-   protected Vector2 leftScreen;
+    protected Vector2 leftScreen;
     protected Vector2 screenBounds;
     protected float objectWidth, objectHeight;
+
+    //public getters because they will have to be changed when they take damage------------------------------------------------
     public int Health
     {
         get { return health; }
@@ -32,13 +35,18 @@ public class Ships : MonoBehaviour, ITakeDamage
     {
         get { return isDead; }
     }
+    //--------------------------------------------------------------------------
     protected virtual void Start()
     {
+       // Gets the screen size according to the camera-------------------------------------------------------------------------------
         leftScreen = Camera.main.ViewportToWorldPoint(new Vector2(0, 1));
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+
         objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
+        //----------------------------------------------------------------------------------------------------------------------------
         if (gameObject.GetComponent<AudioSource>())
             damageSoundSource = GetComponent<AudioSource>();
         else
@@ -60,9 +68,9 @@ public class Ships : MonoBehaviour, ITakeDamage
     }
     protected virtual void move()
     {
-
+        //left empty becayse the function will be inherited and overriden by the child classes
     }
-    protected virtual void LateUpdate()
+    protected virtual void LateUpdate() //used late update to bound the ships to the screen size
     {
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x-objectWidth);
